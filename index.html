@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>kanban-board</title>
+</head>
+<body class="bg-white text-gray-100 font-sans">
+
+<div id="app" class="h-screen flex flex-col">
+
+    <header class="p-6 border-b border-gray-300 shadow-md">
+        <h1 class="text-2xl font-bold text-blue-400"><a href="#">Kanban Board</a> <span
+                class="text-gray-500 text-sm font-normal ml-2">Vanilla TS + Tailwind</span></h1>
+    </header>
+
+    <main class="flex-1 p-8 overflow-x-auto">
+        <div class="grid grid-cols-3 gap-6 h-full min-w-[1500px]">
+            <div class="column bg-blue-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-[500px]"
+                 id="col-todo">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="font-bold text-lg text-white bg-blue-300 px-4 py-2 rounded-md">To Do</h2>
+                    <span class="bg-white text-black text-xs font-bold px-2 py-1 rounded-full">3</span>
+                </div>
+
+                <div class="task-list flex-1 space-y-3 overflow-y-auto min-h-[100px]" data-status="todo">
+                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing"
+                         draggable="true">
+                        <h3 class="font-semibold text-black">Setup Project Repo</h3>
+                        <p class="text-black text-sm mt-1">Initialize Git and install Typescript.</p>
+                    </div>
+
+                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing"
+                         draggable="true">
+                        <h3 class="font-semibold text-black">Draft Interfaces</h3>
+                        <p class="text-black text-sm mt-1">Define Task and Column models.</p>
+                    </div>
+                </div>
+
+                <button class="mt-4 w-full py-2 rounded-lg border-2 border-dashed border-black text-black hover:border-blue-700 hover:text-blue-700 transition cursor-pointer">
+                    + Add Task
+                </button>
+            </div>
+
+            <div class="column bg-orange-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-[500px]"
+                 id="col-doing">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="font-bold text-lg text-white bg-orange-300 px-4 py-2 rounded-md">In Progress</h2>
+                    <span class="bg-white text-black text-xs font-bold px-2 py-1 rounded-full">1</span>
+                </div>
+
+                <div class="task-list flex-1 space-y-3 overflow-y-auto min-h-[100px]" data-status="doing">
+                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-yellow-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing"
+                         draggable="true">
+                        <h3 class="font-semibold text-black">HTML Layout</h3>
+                        <p class="text-black text-sm mt-1">Implement grid structure with Tailwind.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column bg-green-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-[500px]"
+                 id="col-done">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="font-bold text-lg text-white bg-green-300 px-4 py-2 rounded-md">Done</h2>
+                    <span class="bg-white text-black text-xs font-bold px-2 py-1 rounded-full">1</span>
+                </div>
+
+                <div class="task-list flex-1 space-y-3 overflow-y-auto min-h-[100px]" data-status="done">
+                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing"
+                         draggable="true">
+                        <h3 class="font-semibold text-black">HTML Layout</h3>
+                        <p class="text-black text-sm mt-1">Implement grid structure with Tailwind.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>

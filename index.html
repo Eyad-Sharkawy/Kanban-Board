@@ -11,46 +11,39 @@
 <div id="app" class="h-screen flex flex-col">
 
     <header class="p-6 border-b border-gray-300 shadow-md">
-        <h1 class="text-2xl font-bold text-blue-400"><a href="#">Kanban Board</a> <span
-                class="text-gray-500 text-sm font-normal ml-2">Vanilla TS + Tailwind</span></h1>
+        <h1 class="text-2xl font-bold text-blue-400"><a href="#">Kanban Board</a> <span class="text-gray-500 text-sm font-normal ml-2">Vanilla TS + Tailwind</span></h1>
     </header>
 
     <main class="flex-1 p-8 overflow-x-auto">
-        <div class="grid grid-cols-3 gap-6 h-full min-w-[1500px]">
-            <div class="column bg-blue-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-[500px]"
-                 id="col-todo">
+        <div class="grid grid-cols-3 gap-6 h-full min-w-375">
+            <div class="column bg-blue-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-125" id="col-todo">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="font-bold text-lg text-white bg-blue-300 px-4 py-2 rounded-md">To Do</h2>
                     <span class="bg-white text-black text-xs font-bold px-2 py-1 rounded-full">3</span>
                 </div>
 
-                <div class="task-list flex-1 space-y-3 overflow-y-auto min-h-[100px]" data-status="todo">
-                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing"
-                         draggable="true">
+                <div class="task-list flex-1 space-y-3 overflow-y-auto min-h-25" data-status="todo">
+                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing" draggable="true">
                         <h3 class="font-semibold text-black">Setup Project Repo</h3>
-                        <p class="text-black text-sm mt-1">Initialize Git and install Typescript.</p>
+                        <p class="text-black text-sm mt-1">Initialize Git and install TypeScript.</p>
                     </div>
 
-                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing"
-                         draggable="true">
+                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing" draggable="true">
                         <h3 class="font-semibold text-black">Draft Interfaces</h3>
                         <p class="text-black text-sm mt-1">Define Task and Column models.</p>
                     </div>
                 </div>
 
-                <button class="mt-4 w-full py-2 rounded-lg border-2 border-dashed border-black text-black hover:border-blue-700 hover:text-blue-700 transition cursor-pointer">
-                    + Add Task
-                </button>
+                <button class="mt-4 w-full py-2 rounded-lg border-2 border-dashed border-black text-black hover:border-blue-700 hover:text-blue-700 transition cursor-pointer">+ Add Task</button>
             </div>
 
-            <div class="column bg-orange-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-[500px]"
-                 id="col-doing">
+            <div class="column bg-orange-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-125" id="col-doing">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="font-bold text-lg text-white bg-orange-300 px-4 py-2 rounded-md">In Progress</h2>
                     <span class="bg-white text-black text-xs font-bold px-2 py-1 rounded-full">1</span>
                 </div>
 
-                <div class="task-list flex-1 space-y-3 overflow-y-auto min-h-[100px]" data-status="doing">
+                <div class="task-list flex-1 space-y-3 overflow-y-auto min-h-25" data-status="doing">
                     <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-yellow-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing"
                          draggable="true">
                         <h3 class="font-semibold text-black">HTML Layout</h3>
@@ -59,16 +52,14 @@
                 </div>
             </div>
 
-            <div class="column bg-green-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-[500px]"
-                 id="col-done">
+            <div class="column bg-green-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-125" id="col-done">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="font-bold text-lg text-white bg-green-300 px-4 py-2 rounded-md">Done</h2>
                     <span class="bg-white text-black text-xs font-bold px-2 py-1 rounded-full">1</span>
                 </div>
 
-                <div class="task-list flex-1 space-y-3 overflow-y-auto min-h-[100px]" data-status="done">
-                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing"
-                         draggable="true">
+                <div class="task-list flex-1 space-y-3 overflow-y-auto min-h-25" data-status="done">
+                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing" draggable="true">
                         <h3 class="font-semibold text-black">HTML Layout</h3>
                         <p class="text-black text-sm mt-1">Implement grid structure with Tailwind.</p>
                     </div>
@@ -76,6 +67,54 @@
             </div>
         </div>
     </main>
+
+    <div id="task-modal" class="fixed inset-0 bg-white/10 hidden flex items-center justify-center z-50 backdrop-blur-sm">
+
+        <div class="bg-white rounded-xl shadow-2xl border border-gray-300 w-full max-w-7xl h-2/3 mx-4 transform transition-all p-6 shadow">
+
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-black">Add New Task</h3>
+                <button id="close-modal-btn" class="text-gray-700 hover:text-black transition cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <form id="add-task-form" class="flex justify-center flex-col space-y-4 h-9/10">
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-1">Title</label>
+                    <input
+                            type="text"
+                            id="task-title-input"
+                            class="w-full bg-gray-100 border border-gray-200 rounded-lg px-4 py-2 text-black placeholder-gray-500 focus:outline-none focus:border-blue-100 focus:ring-1 focus:ring-blue-500 transition"
+                            placeholder="Enter the Task's Title..."
+                            required
+                    >
+                </div>
+
+                <div class="flex-1">
+                    <label class="block text-sm font-medium text-gray-400 mb-1">Description</label>
+                    <textarea
+                            id="task-desc-input"
+                            rows="3"
+                            class="w-full bg-gray-100 border border-gray-200 rounded-lg px-4 py-2 text-black placeholder-gray-500 focus:outline-none focus:border-blue-100 focus:ring-1 focus:ring-blue-500 transition resize-none h-full"
+                            placeholder="Add details about this task..."
+                    ></textarea>
+                </div>
+
+                <div class="flex justify-end space-x-3 mt-6 pt-4 border-t border-gray-700">
+                    <button type="button" id="cancel-btn" class="px-4 py-2 text-black hover:text-white hover:bg-gray-700 rounded-lg transition text-sm font-medium">
+                        Cancel
+                    </button>
+                    <button type="submit" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg hover:shadow-blue-500/20 transition text-sm font-medium">
+                        Create Task
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 <script type="module" src="/src/main.ts"></script>
 </body>

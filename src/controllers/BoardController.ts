@@ -88,8 +88,8 @@ export class BoardController implements Observer {
         this.createTaskForm.addEventListener("submit", (evt) => {
             evt.preventDefault();
 
-            const title = this.titleInput.value;
-            const description = this.descriptionInput.value;
+            const title = this.titleInput.value.trim();
+            const description = this.descriptionInput.value.trim();
 
             if (!title || !description) return;
 

@@ -205,7 +205,7 @@ export class BoardController implements Observer {
     }
 
     private handleAutoScrollFromPosition(clientX?: number, clientY?: number): void {
-        const edgeThreshold = 50;
+        const edgeThreshold = 150;
         const scrollSpeed = 10;
         const scrollIntervalMs = 16;
 

@@ -4,6 +4,12 @@
     <meta charset="UTF-8"/>
     <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">
+
     <title>kanban-board</title>
 </head>
 <body class="bg-white text-gray-100 font-sans">
@@ -15,8 +21,8 @@
     </header>
 
     <main class="flex-1 p-8 overflow-x-auto">
-        <div class="grid grid-cols-3 gap-6 h-full min-w-375">
-            <div class="column bg-blue-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-125" id="col-todo">
+        <div class="grid grid-cols-3 gap-6 h-full min-w-325">
+            <div class="column bg-blue-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-100" id="col-todo">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="font-bold text-lg text-white bg-blue-300 px-4 py-2 rounded-md">To Do</h2>
                 </div>
@@ -26,7 +32,7 @@
                 <button class="add-task-btn mt-4 w-full py-2 rounded-lg border-2 border-dashed border-black text-black hover:border-blue-700 hover:text-blue-700 transition cursor-pointer">+ Add Task</button>
             </div>
 
-            <div class="column bg-orange-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-125" id="col-doing">
+            <div class="column bg-orange-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-100" id="col-doing">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="font-bold text-lg text-white bg-orange-300 px-4 py-2 rounded-md">In Progress</h2>
                 </div>
@@ -34,7 +40,7 @@
                 <div class="doing-list flex-1 space-y-3 overflow-y-auto min-h-25" data-status="doing"></div>
             </div>
 
-            <div class="column bg-green-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-125" id="col-done">
+            <div class="column bg-green-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-100" id="col-done">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="font-bold text-lg text-white bg-green-300 px-4 py-2 rounded-md">Done</h2>
                 </div>

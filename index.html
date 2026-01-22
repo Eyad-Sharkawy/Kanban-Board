@@ -19,51 +19,27 @@
             <div class="column bg-blue-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-125" id="col-todo">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="font-bold text-lg text-white bg-blue-300 px-4 py-2 rounded-md">To Do</h2>
-                    <span class="bg-white text-black text-xs font-bold px-2 py-1 rounded-full">3</span>
                 </div>
 
-                <div class="task-list flex-1 space-y-3 overflow-y-auto min-h-25" data-status="todo">
-                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing" draggable="true">
-                        <h3 class="font-semibold text-black">Setup Project Repo</h3>
-                        <p class="text-black text-sm mt-1">Initialize Git and install TypeScript.</p>
-                    </div>
+                <div class="todo-list flex-1 space-y-3 overflow-y-auto min-h-25" data-status="todo"></div>
 
-                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing" draggable="true">
-                        <h3 class="font-semibold text-black">Draft Interfaces</h3>
-                        <p class="text-black text-sm mt-1">Define Task and Column models.</p>
-                    </div>
-                </div>
-
-                <button class="mt-4 w-full py-2 rounded-lg border-2 border-dashed border-black text-black hover:border-blue-700 hover:text-blue-700 transition cursor-pointer">+ Add Task</button>
+                <button class="add-task-btn mt-4 w-full py-2 rounded-lg border-2 border-dashed border-black text-black hover:border-blue-700 hover:text-blue-700 transition cursor-pointer">+ Add Task</button>
             </div>
 
             <div class="column bg-orange-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-125" id="col-doing">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="font-bold text-lg text-white bg-orange-300 px-4 py-2 rounded-md">In Progress</h2>
-                    <span class="bg-white text-black text-xs font-bold px-2 py-1 rounded-full">1</span>
                 </div>
 
-                <div class="task-list flex-1 space-y-3 overflow-y-auto min-h-25" data-status="doing">
-                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-yellow-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing"
-                         draggable="true">
-                        <h3 class="font-semibold text-black">HTML Layout</h3>
-                        <p class="text-black text-sm mt-1">Implement grid structure with Tailwind.</p>
-                    </div>
-                </div>
+                <div class="doing-list flex-1 space-y-3 overflow-y-auto min-h-25" data-status="doing"></div>
             </div>
 
             <div class="column bg-green-200 rounded-xl p-4 flex flex-col h-full border border-gray-300 min-w-125" id="col-done">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="font-bold text-lg text-white bg-green-300 px-4 py-2 rounded-md">Done</h2>
-                    <span class="bg-white text-black text-xs font-bold px-2 py-1 rounded-full">1</span>
                 </div>
 
-                <div class="task-list flex-1 space-y-3 overflow-y-auto min-h-25" data-status="done">
-                    <div class="task bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 cursor-grab hover:bg-gray-650 transition active:cursor-grabbing" draggable="true">
-                        <h3 class="font-semibold text-black">HTML Layout</h3>
-                        <p class="text-black text-sm mt-1">Implement grid structure with Tailwind.</p>
-                    </div>
-                </div>
+                <div class="done-list flex-1 space-y-3 overflow-y-auto min-h-25" data-status="done"></div>
             </div>
         </div>
     </main>
@@ -100,15 +76,15 @@
                             id="task-desc-input"
                             rows="3"
                             class="w-full bg-gray-100 border border-gray-200 rounded-lg px-4 py-2 text-black placeholder-gray-500 focus:outline-none focus:border-blue-100 focus:ring-1 focus:ring-blue-500 transition resize-none h-full"
-                            placeholder="Add details about this task..."
+                            placeholder="Add details about this task..." required
                     ></textarea>
                 </div>
 
                 <div class="flex justify-end space-x-3 mt-6 pt-4 border-t border-gray-700">
-                    <button type="button" id="cancel-btn" class="px-4 py-2 text-black hover:text-white hover:bg-gray-700 rounded-lg transition text-sm font-medium">
+                    <button type="button" id="cancel-btn" class="px-4 py-2 cursor-pointer text-black hover:text-white hover:bg-gray-700 rounded-lg transition text-sm font-medium">
                         Cancel
                     </button>
-                    <button type="submit" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg hover:shadow-blue-500/20 transition text-sm font-medium">
+                    <button type="submit" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 cursor-pointer text-white rounded-lg shadow-lg hover:shadow-blue-500/20 transition text-sm font-medium">
                         Create Task
                     </button>
                 </div>

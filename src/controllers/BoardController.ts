@@ -14,6 +14,7 @@ export class BoardController implements Observer {
     private createTaskForm: HTMLFormElement;
     private titleInput: HTMLInputElement;
     private descriptionInput: HTMLTextAreaElement;
+    private trashCanBtn: HTMLButtonElement;
 
     private todoColumn: HTMLElement;
     private doingColumn: HTMLElement;
@@ -34,6 +35,7 @@ export class BoardController implements Observer {
         this.createTaskForm = document.querySelector("#add-task-form") as HTMLFormElement;
         this.titleInput = document.querySelector("#task-title-input") as HTMLInputElement;
         this.descriptionInput = document.querySelector("#task-desc-input") as HTMLTextAreaElement;
+        this.trashCanBtn = document.querySelector("#trash-can") as HTMLButtonElement;
 
         this.todoColumn = document.getElementById("col-todo")!;
         this.doingColumn = document.getElementById("col-doing")!;
@@ -127,6 +129,26 @@ export class BoardController implements Observer {
 
                 this.model.moveTask(taskId, newStatus);
             });
+        });
+
+        this.trashCanBtn.addEventListener("dragover", (event) => {
+            event.preventDefault();
+            this.trashCanBtn.classList.add("text-red-700")
+        });
+
+        this.trashCanBtn.addEventListener("dragleave", () => {
+            this.trashCanBtn.classList.remove("text-red-700");
+        });
+
+        this.trashCanBtn.addEventListener("drop", (event) => {
+            event.preventDefault();
+            this.trashCanBtn.classList.remove("text-red-700");
+
+            const taskIdString = event.dataTransfer?.getData("text/plain");
+            if (!taskIdString) return;
+            const taskTd = parseInt(taskIdString);
+
+            this.model.deleteTask(taskTd);
         });
     }
 
